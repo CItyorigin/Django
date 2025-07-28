@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>구구단 페이지</title>
+</head>
+<body>
+    <h1>구구단 출력</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="number">숫자 입력: </label>
+        <input type="number" id="number" name="number" value="{{ number }}">
+        <button type="submit">출력</button>
+    </form>
+
+    {% if result %}
+    <h2>{{ number }}단 결과</h2>
+    <ul>
+        {% for line in result %}
+        <li>{{ line }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <a href="/movies/">영화 페이지</a> | <a href="/books/">도서 페이지</a>
+</body>
+</html>
